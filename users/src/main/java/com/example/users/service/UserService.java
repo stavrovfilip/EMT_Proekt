@@ -2,11 +2,15 @@ package com.example.users.service;
 
 import com.example.users.domain.models.User;
 import com.example.users.domain.models.UserId;
+import com.example.users.service.forms.UserForm;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface UserService {
+public interface UserService extends UserDetailsService {
 
-    User findById(UserId userId);
-    List<User> findAll();
+    Optional<User> register(UserForm userForm);
+    Optional<User> findByUserName(String username);
+    Optional<User> findByUserId(UserId userId);
 }

@@ -15,11 +15,11 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/AI-DDD-order-management</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="AI-DDD-users@localhost" uuid="2e554df2-6980-4cb0-901c-1c0cf3c6479f">
+    <data-source source="LOCAL" name="AI-DDD-ai-users@localhost" uuid="5b71d753-e1da-4216-8c6d-405b479f9248">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/AI-DDD-users</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/AI-DDD-ai-users</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

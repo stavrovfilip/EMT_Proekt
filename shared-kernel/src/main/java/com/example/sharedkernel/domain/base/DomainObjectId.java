@@ -17,7 +17,7 @@ public class DomainObjectId implements Serializable {
 
     private String id;
 
-    @JsonCreator
+    //@JsonCreator
     protected DomainObjectId(@NonNull String uuid) {
         this.id = Objects.requireNonNull(uuid, "uuid must not be null");
     }

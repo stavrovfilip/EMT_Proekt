@@ -5,4 +5,6 @@ import com.example.articles.domain.models.ArticleId;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ArticleRepository extends JpaRepository<Article, ArticleId> {
+
+    void deleteByTitle(String title);
 }

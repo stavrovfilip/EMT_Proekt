@@ -1,19 +1,25 @@
 package com.example.users.domain.models;
 
 import com.example.sharedkernel.domain.base.AbstractEntity;
-import com.example.sharedkernel.domain.financial.Money;
+import com.example.users.domain.enumerations.Role;
 import lombok.Getter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
+import java.util.Collection;
+import java.util.Collections;
 
 @Entity
+@Table(name = "Ai_users")
 @Getter
-@Table(name="ai-users")
-public class User extends AbstractEntity<UserId> {
+public class User extends AbstractEntity<UserId> implements UserDetails {
+
     /*
-    Klasa koja go pretstavuva entitetot Korisnik. Istiot ima ednostavni atributi kako username, name, surname i password.
-    Nikoj od niv ne vklucuva nekoja biznis logika, pa istite ne gi kreirav kako valueObjects.
+    Klasa za korisnik koj ima username, password, name, surname.
      */
 
     private String username;
@@ -24,18 +30,38 @@ public class User extends AbstractEntity<UserId> {
 
     private String password;
 
+    private boolean isAccountNonExpired = true;
+
+    private boolean isAccountNonLocked = true;
+
+    private boolean isCredentialsNonExpired = true;
+
+    private boolean isEnabled = true;
+
+    @Enumerated(value = EnumType.STRING)
+    private Role role;
+
+
     protected User() {
         super(UserId.randomId(UserId.class));
     }
 
-    public static User build(String username, String name, String surname, String password){
-        User user = new User();
-        user.username = username;
-        user.name = name;
-        user.surname = surname;
-        user.password = password;
 
-        return user;
+    public User(String username,
+                String name,
+                String surname,
+                String password,
+                Role role) {
+        super(UserId.randomId(UserId.class));
+        this.username = username;
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+        this.role = role;
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.singletonList(role);
+    }
 }

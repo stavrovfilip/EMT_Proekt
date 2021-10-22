@@ -4,11 +4,13 @@ import com.example.articles.domain.valueobjects.Quantity;
 import com.example.sharedkernel.domain.base.AbstractEntity;
 import com.example.sharedkernel.domain.financial.Money;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
+@Setter
 public class Article extends AbstractEntity<ArticleId> {
 
     /*

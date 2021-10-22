@@ -34,7 +34,7 @@ public class Money implements ValueObject {
         this.amount = amount;
     }
 
-    public static Money valueOf(Currency currency, int amount) {
+    public static Money valueOf(Currency currency, double amount) {
         return new Money(currency,amount);
     }
 

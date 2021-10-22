@@ -15,15 +15,6 @@ const orders = (props) => {
                         </tr>
                         </thead>
                         <tbody>
-                        {props.orders.map((term) => {
-                            return (
-                                <tr>
-                                    <td>{term.orderedOn}</td>
-                                    <td>{term.orderState}</td>
-                                    <td>{term.currency}</td>
-                                </tr>
-                            );
-                        })}
                         </tbody>
                     </table>
                 </div>
